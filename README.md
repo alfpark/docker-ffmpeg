@@ -1,8 +1,12 @@
 # Minimalist FFmpeg Docker image
 This is an FFmpeg Docker image based on Alpine Linux with a small footprint.
 
-Compressed size:
+### Image Sizes
+Download/Compressed Size: [![](https://images.microbadger.com/badges/image/alfpark/ffmpeg.svg)](http://microbadger.com/images/alfpark/ffmpeg)
 
+On-Disk: 98.86 MB
+
+### Features
 Output of `docker run --rm -it alfpark/ffmpeg -buildconf`:
 
 ```
