@@ -4,9 +4,9 @@ MAINTAINER Fred Park <https://github.com/alfpark/docker-ffmpeg>
 
 # install base
 RUN apk add --update --no-cache \
-        musl coreutils build-base nasm ca-certificates curl tar sdl-dev \
-        openssl-dev zlib-dev yasm-dev lame-dev freetype-dev opus-dev \
-        rtmpdump-dev x264-dev x265-dev libass-dev libwebp-dev \
+        musl coreutils build-base nasm ca-certificates curl tar \
+        openssl-dev zlib-dev yasm-dev lame-dev freetype-dev faac-dev opus-dev \
+        rtmpdump-dev x264-dev x265-dev xvidcore-dev libass-dev libwebp-dev \
         libvorbis-dev libogg-dev libtheora-dev libvpx-dev \
     # build and install ffmpeg
     && FFMPEG_VER=3.1.3 \
@@ -15,21 +15,22 @@ RUN apk add --update --no-cache \
     && ./configure \
         --disable-debug --enable-version3 --enable-small --enable-gpl \
         --enable-nonfree --enable-postproc --enable-openssl \
-        --enable-avresample --enable-libfreetype \
+        --enable-avresample --enable-libfreetype --enable-libfaac \
         --enable-libmp3lame --enable-libx264 --enable-libx265 \
         --enable-libopus --enable-libass --enable-libwebp --enable-librtmp \
         --enable-libtheora --enable-libvorbis --enable-libvpx \
+        --enable-libxvid \
     && make -j"$(nproc)" install \
     && cd .. \
     && rm -rf ffmpeg-${FFMPEG_VER} \
     # cleanup
     && apk del --purge \
-        coreutils build-base nasm curl tar sdl-dev openssl-dev zlib-dev \
-        yasm-dev lame-dev freetype-dev opus-dev libass-dev libwebp-dev \
-        libvorbis-dev libogg-dev libtheora-dev libvpx-dev \
+        coreutils build-base nasm curl tar openssl-dev zlib-dev yasm-dev \
+        lame-dev freetype-dev opus-dev xvidcore-dev libass-dev libwebp-dev \
+        libvorbis-dev libogg-dev libtheora-dev libvpx-dev faac-dev \
     && apk add --no-cache \
-        sdl zlib lame freetype opus libass libwebp libvorbis libogg \
-        libtheora libvpx libxcb \
+        zlib lame freetype faac opus xvidcore libass libwebp libvorbis libogg \
+        libtheora libvpx \
     && rm -rf /var/cache/apk/*
 
 ENTRYPOINT ["ffmpeg"]

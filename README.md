@@ -8,7 +8,7 @@ Output of `docker run --rm -it alfpark/ffmpeg -buildconf`:
 ```
 ffmpeg version 3.1.3 Copyright (c) 2000-2016 the FFmpeg developers
   built with gcc 5.3.0 (Alpine 5.3.0)
-  configuration: --disable-debug --enable-version3 --enable-small --enable-gpl --enable-nonfree --enable-postproc --enable-openssl --enable-avresample --enable-libfreetype --enable-libmp3lame --enable-libx264 --enable-libx265 --enable-libopus --enable-libass --enable-libwebp --enable-librtmp --enable-libtheora --enable-libvorbis --enable-libvpx
+  configuration: --disable-debug --enable-version3 --enable-small --enable-gpl --enable-nonfree --enable-postproc --enable-openssl --enable-avresample --enable-libfreetype --enable-libfaac --enable-libmp3lame --enable-libx264 --enable-libx265 --enable-libopus --enable-libass --enable-libwebp --enable-librtmp --enable-libtheora --enable-libvorbis --enable-libvpx --enable-libxvid
   libavutil      55. 28.100 / 55. 28.100
   libavcodec     57. 48.101 / 57. 48.101
   libavformat    57. 41.100 / 57. 41.100
@@ -29,6 +29,7 @@ ffmpeg version 3.1.3 Copyright (c) 2000-2016 the FFmpeg developers
     --enable-openssl
     --enable-avresample
     --enable-libfreetype
+    --enable-libfaac
     --enable-libmp3lame
     --enable-libx264
     --enable-libx265
@@ -39,5 +40,6 @@ ffmpeg version 3.1.3 Copyright (c) 2000-2016 the FFmpeg developers
     --enable-libtheora
     --enable-libvorbis
     --enable-libvpx
+    --enable-libxvid
 ```
 
