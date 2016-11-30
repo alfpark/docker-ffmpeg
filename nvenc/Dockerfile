@@ -18,8 +18,8 @@ RUN apt-get update \
     && cp -r /tmp/nvidia_video_sdk_6.0.1/Samples/common/inc/* /usr/local/include/ \
     && ln -sf /usr/local/nvidia/lib64/libnvidia-encode.so.1 /usr/lib/x86_64-linux-gnu/libnvidia-encode.so \
     # build and install ffmpeg
-    && FFMPEG_VER=3.1.3 \
-    export CPPFLAGS=-I/tmp/nvidia_video_Sdk_6.0.1/Samples/common/inc \
+    && FFMPEG_VER=3.2.1 \
+    export CPPFLAGS=-I/tmp/nvidia_video_sdk_6.0.1/Samples/common/inc \
     && curl -s http://ffmpeg.org/releases/ffmpeg-${FFMPEG_VER}.tar.gz | tar zxvf - -C . \
     && cd ffmpeg-${FFMPEG_VER} \
     && ./configure \
